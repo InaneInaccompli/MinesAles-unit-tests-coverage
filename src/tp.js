@@ -55,8 +55,6 @@ export const fibo = (n) => {
   return fibo(n - 1) + fibo(n - 2);
 };
 
-
-
 export const my_display_alpha_reverse_t = () => {
   const alpha = my_display_alpha_t();
   let reverseAlpha = '';
@@ -101,8 +99,7 @@ export const my_display_unicode_t = (arr) => {
   return results.join('');
 };
 
-
-function quickSort(arr) {
+export function quickSort(arr) {
     if (arr.length <= 1) return arr;
     let pivot = arr[arr.length - 1];
     let left = [];
@@ -111,10 +108,10 @@ function quickSort(arr) {
         if (arr[i] < pivot) left.push(arr[i]);
         else right.push(arr[i]);
     }
-    return [...quickSort(left), pivot, ...quickSort(right)];
+  return [...quickSort(left), pivot, ...quickSort(right)];
 }
 
-function tspBrutForce(distances) {
+export function tspBrutForce(distances) {
     let villes = Object.keys(distances);
     let permutations = permuter(villes);
     let minDistance = Infinity;
@@ -132,10 +129,10 @@ function tspBrutForce(distances) {
             meilleurePermutation = chemin;
         }
     });
-    return { minDistance, meilleurePermutation };
+  return { minDistance, meilleurePermutation };
 }
 
-function permuter(arr) {
+export function permuter(arr) {
     if (arr.length === 0) return [[]];
     let result = [];
     for (let i = 0; i < arr.length; i++) {
@@ -145,10 +142,10 @@ function permuter(arr) {
             result.push([arr[i]].concat(permut[j]));
         }
     }
-    return result;
+  return result;
 }
 
-function resoudreSudoku(grille) {
+export function resoudreSudoku(grille) {
     for (let ligne = 0; ligne < 9; ligne++) {
         for (let col = 0; col < 9; col++) {
             if (grille[ligne][col] === 0) {
@@ -165,10 +162,10 @@ function resoudreSudoku(grille) {
             }
         }
     }
-    return true;
+  return true;
 }
 
-function estValide(grille, ligne, col, num) {
+export function estValide(grille, ligne, col, num) {
     for (let i = 0; i < 9; i++) {
         if (grille[ligne][i] === num || grille[i][col] === num) return false;
     }
@@ -179,5 +176,5 @@ function estValide(grille, ligne, col, num) {
             if (grille[i][j] === num) return false;
         }
     }
-    return true;
+  return true;
 }
